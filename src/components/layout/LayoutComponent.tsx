@@ -7,19 +7,18 @@ const { Content } = AndLayout;
 
 export interface Props {
   children?: React.ReactNode;
+  showFooter?: boolean
 }
 
-const LayoutComponent: React.FC<Props> = (props) => {
+const LayoutComponent: React.FC<Props> = ({ showFooter = false,  children}) => {
   return (
-    <div className="flex flex-wrap gap-4">
-      <AndLayout className="overflow-hidden">
-        <HeaderComponent />
-        <Content className="text-center leading-[120px]">
-          {props?.children}
-        </Content>
-        <FooterComponent />
-      </AndLayout>
-    </div>
+    <AndLayout className="min-h-screen">
+      <HeaderComponent />
+      <Content className="text-center leading-[120px]">
+        {children}
+      </Content>
+      {showFooter && <FooterComponent/>}
+    </AndLayout>
   );
 };
 
