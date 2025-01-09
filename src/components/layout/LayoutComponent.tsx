@@ -14,7 +14,7 @@ const LayoutComponent: React.FC<Props> = ({ showFooter = false,  children}) => {
   return (
     <AndLayout className="min-h-screen">
       <HeaderComponent />
-      <Content className="text-center leading-[120px]">
+      <Content className="">
         {children}
       </Content>
       {showFooter && <FooterComponent/>}

@@ -10,7 +10,10 @@ const { Text } = Typography;
 
 const FooterComponent = () => {
   return (
-    <Footer className="bg-[#0F0F0F] text-white px-20 py-20">
+    <Footer className="bg-[#0F0F0F] text-white px-20 py-20 z-10000" 
+    style={{
+      zIndex: 10000,
+    }}>
       <Row className="">
         <Col span={12} className="">
           <div className="flex flex-col gap-8">
@@ -48,7 +51,7 @@ const FooterComponent = () => {
             </div>
           </div>
         </Col>
-        <Col span={4} className="flex flex-col gap-3">
+        <Col span={4} className="flex flex-col gap-8">
           <span className="text-xl">Contact</span>
           <span className="leading-8">
             <a href="mailto:email@locable.co.th" className="hover:underline">
@@ -60,7 +63,7 @@ const FooterComponent = () => {
             </a>
           </span>
         </Col>
-        <Col span={8} className="flex flex-col gap-3 ">
+        <Col span={8} className="flex flex-col gap-8">
           <span className="text-xl">Office Info</span>
           <span className="leading-8">
             Bedrock Analytics Co., Ltd. 304 Vanit Place Aree (Building A), 25th
