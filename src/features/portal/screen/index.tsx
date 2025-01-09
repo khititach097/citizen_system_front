@@ -22,7 +22,7 @@ const PortalScreen = () => {
       </section>
       <section
         id=""
-        className="mt-[-60dvh] relative z-20 min-h-[515px] mx-auto container"
+        className="mt-[-50dvh] relative z-20 min-h-[515px] mx-auto container"
       >
         <h1 className="text-[2rem] font-bold text-center text-white drop-shadow-[0px_4px_4px_rgba(0,0,0,0.7)]">
           ระบบบริการตรวจสอบข้อมูลภาษี
@@ -31,7 +31,7 @@ const PortalScreen = () => {
           {Array.from({ length: 3 }).map((_, index) => (
             <div className="bg-white p-6 rounded-2xl flex flex-col justify-between gap-6 shadow-md hover:shadow-lg transition">
               <div className="bg-primary-2 opacity-75 w-full aspect-[16/9] rounded-2xl"></div>
-              <div className="==min-h-[170px] flex flex-col gap-2 w-[60%]">
+              <div className="flex flex-col gap-2 w-[60%]">
                 <div className="text-xl font-bold line-clamp-2">
                   จัดการคำร้อง สร้างคำร้อง
                 </div>
