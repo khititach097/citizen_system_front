@@ -17,11 +17,11 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Noto Sans Thai', sans-serif;
+  font-family: "Noto Sans Thai", sans-serif;
 }
 
 * {
-  font-family: 'Noto Sans Thai', sans-serif !important;
+  font-family: "Noto Sans Thai", sans-serif !important;
 }
 
 /* Optional: For specific Ant Design components */
@@ -29,5 +29,5 @@ body {
 .ant-btn,
 .ant-select,
 .ant-input {
-  font-family: 'Noto Sans Thai', sans-serif !important;
+  font-family: "Noto Sans Thai", sans-serif !important;
 }
