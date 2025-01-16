@@ -13,7 +13,8 @@ module.exports = {
         "text-green-1": "#01443F", //for
         "text-green-2": "#015850", //for main title
         green: "#3EAF3F",
-        "light-green": "#F3FFE8 ",
+        "light-green": "#F3FFE8",
+        "grey-1": "#778F9B",
       },
       gridTemplateColumns: {
         min1rem: "repeat(auto-fill,minmax(1rem,1fr))",

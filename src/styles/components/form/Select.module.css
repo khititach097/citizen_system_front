@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+}
+
+.container div {
+  width: 100%;
+}
+
+.btn_clear {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  width: 30px;
+  transform: translateY(-50%);
+}
+
+

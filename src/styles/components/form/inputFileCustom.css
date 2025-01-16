@@ -1,0 +1,32 @@
+/* 
+
+input[type="file"] {
+    color: #A6A6B0;
+    border: 1px solid #E2E8F0;
+    height: fit-content;
+    padding: 4px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+ label {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #E2E8F0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    content: 'Upload';
+}
+
+ label:hover {
+    background-color: #0056b3;
+}
+
+.file-name {
+    margin-left: 10px;
+    font-size: 16px;
+} */

@@ -1,6 +1,6 @@
-import React from "react";
+import { Pagination, Select } from "antd";
 import Image from "next/image";
-import { Select } from "antd";
+import React from "react";
 
 const PortalScreen = () => {
   return (
@@ -8,12 +8,12 @@ const PortalScreen = () => {
       <section id="banner" className="relative aspect-[16/5] z-10">
         <div className="">
           <img
-            className="aspect-[16/5] object-cover bg-no-repeat w-[100dvw] h-[50dvh]"
+            className="aspect-[16/5] object-cover bg-no-repeat w-full h-[50dvh]"
             src="/Banner/iStock-2164382354.jpg"
             alt="Banner"
           />
           <div
-            className="object-cover object-center bg-no-repeat absolute top-0 left-0 z-[10] w-[100dvw] h-[50dvh]"
+            className="object-cover object-center bg-no-repeat absolute top-0 left-0 z-[10] w-full h-[50dvh]"
             style={{
               backgroundColor: "rgba(0, 75, 15, 0.4)",
             }}
@@ -47,17 +47,17 @@ const PortalScreen = () => {
           ))}
         </div>
       </section>
-      <section id="" className="pt-28 container mx-auto">
-        {/* <div className="flex justify-between items-center text-2xl"> */}
-        {/*   <div>ข่าวสารและประชาสัมพันธ์</div> */}
-        {/*   <div> */}
-        {/*     <Select defaultValue="1" style={{ width: 120 }}> */}
-        {/*       <Select.Option value="1">ทั้งหมด</Select.Option> */}
-        {/*       <Select.Option value="2">ข่าวสาร</Select.Option> */}
-        {/*       <Select.Option value="3">ประชาสัมพันธ์</Select.Option> */}
-        {/*     </Select> */}
-        {/*   </div> */}
-        {/* </div> */}
+      <section id="" className="py-28 container mx-auto">
+        <div className="==flex justify-between items-center text-2xl hidden">
+          <div>ข่าวสารและประชาสัมพันธ์</div>
+          <div>
+            <Select size="large" defaultValue="1" className="w-[412px]">
+              <Select.Option value="1">ทั้งหมด</Select.Option>
+              <Select.Option value="2">ข่าวสาร</Select.Option>
+              <Select.Option value="3">ประชาสัมพันธ์</Select.Option>
+            </Select>
+          </div>
+        </div>
       </section>
     </div>
   );

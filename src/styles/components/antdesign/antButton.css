@@ -1,0 +1,9 @@
+.btn-blue.ant-btn-variant-solid {
+  background: #008bff;
+  box-shadow: 0 2px 0 #008bff2e;
+}
+
+.btn-blue.ant-btn-variant-solid:not(:disabled):not(.ant-btn-disabled):hover,
+.btn-blue.ant-btn-variant-solid:not(:disabled):not(.ant-btn-disabled):active {
+  background: #0d5a9b;
+}

@@ -1,0 +1,33 @@
+.cntrn {
+  position: relative;
+}
+
+.rng {
+  color: var(--color-text-gray);
+  padding: 0.4rem 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+.rng :global(.ant-picker-input input) {
+  text-align: center;
+}
+.rng :global(.ant-picker-range-separator) {
+  padding: 0 8px 8px 0;
+}
+
+.mid {
+  text-align: center;
+}
+
+.err {
+  border: 1px solid var(--color-red);
+}
+
+.err:hover {
+  border: 1px solid var(--color-red);
+}
+
+.err:focus {
+  border: 1px solid var(--color-red);
+  box-shadow: 0 0 0 2px var(--color-red-shadow);
+}

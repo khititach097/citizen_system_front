@@ -1,0 +1,41 @@
+.table-rounded-none
+  .ant-table-wrapper
+  .ant-table-container
+  table
+  > thead
+  > tr:first-child
+  > *:last-child {
+  border-start-end-radius: 0;
+}
+
+.table-rounded-none
+  .ant-table-wrapper
+  .ant-table-container
+  table
+  > thead
+  > tr:first-child
+  > *:first-child {
+  border-start-start-radius: 0;
+}
+
+.table-disable-border
+  .ant-table-wrapper
+  .ant-table-thead
+  > tr
+  > th:not(:last-child):not(.ant-table-selection-column):not(
+    .ant-table-row-expand-icon-cell
+  ):not([colspan])::before {
+  content: unset;
+}
+
+.table-disable-border-bottom
+  .ant-table-wrapper
+  .ant-table-tbody
+  > tr.ant-table-placeholder
+  > td {
+  border-bottom: unset;
+}
+
+.header-bright-gray .ant-table-wrapper .ant-table-thead > tr > th {
+  background-color: #eaebed;
+}
