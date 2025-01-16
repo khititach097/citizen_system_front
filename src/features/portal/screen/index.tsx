@@ -1,8 +1,34 @@
 import { Pagination, Select } from "antd";
 import Image from "next/image";
 import React from "react";
+import ServiceCard, {
+  ServiceCardProps,
+} from "../components/shared/ServiceCard";
 
 const PortalScreen = () => {
+  const services: ServiceCardProps[] = [
+    {
+      title: "จัดการคำร้องสร้างคำร้อง",
+      description:
+        "การจัดการคำร้องสำหรับ เปลี่ยนแปลงการใช้ประโยชน์ ,คัดค้านการประเมินภาษีและ แก้ไขรายการทรัพย์สิน",
+      image: "/Services/service1.svg",
+      href: "/manage-request",
+    },
+    {
+      title: "การชำระภาษี และประวัติการชำระภาษี",
+      description:
+        "การตรวจสอบประวัติการชำระภาษี และเอกสารที่เกี่ยวข้องกับภาษีที่ดินและสิ่งปลูกสร้าง ภาษีป้าย และที่ดิน",
+      image: "/Services/service2.svg",
+      href: "",
+    },
+    {
+      title: "แสดงรายการทรัพย์สิน",
+      description: "การแสดงรายการทรัพย์สินในกรรมสิทธิ์ของท่าน",
+      image: "/Services/service3.svg",
+      href: "",
+    },
+  ];
+
   return (
     <div className="">
       <section id="banner" className="relative aspect-[16/5] z-10">
@@ -28,22 +54,15 @@ const PortalScreen = () => {
           ระบบบริการตรวจสอบข้อมูลภาษี
         </h1>
         <div className="grid grid-cols-3 min-h-[515px] gap-6 pt-14">
-          {Array.from({ length: 3 }).map((_, index) => (
-            <div className="bg-white p-6 rounded-2xl flex flex-col justify-between gap-6 shadow-md hover:shadow-lg transition">
-              <div className="bg-primary-2 opacity-75 w-full aspect-[16/9] rounded-2xl"></div>
-              <div className="flex flex-col gap-2 w-[60%]">
-                <div className="text-xl font-bold line-clamp-2">
-                  จัดการคำร้อง สร้างคำร้อง
-                </div>
-                <div className="text-base line-clamp-4">
-                  การจัดการคำร้องสำหรับ เปลี่ยนแปลงการใช้ประโยชน์
-                  ,คัดค้านการประเมินภาษีและ แก้ไขรายการทรัพย์สิน
-                </div>
-              </div>
-              <div className="font-bold text-primary flex text-lg py-4">
-                <div className="cursor-pointer">เลือกบริการนี้</div>
-              </div>
-            </div>
+          {services.map((_, index: number) => (
+            <ServiceCard
+              key={index}
+              title={_.title}
+              description={_.description}
+              image={_.image}
+              alt={_.alt}
+              href={_.href}
+            />
           ))}
         </div>
       </section>
