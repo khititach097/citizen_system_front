@@ -31,15 +31,15 @@ const PortalScreen = () => {
 
   return (
     <div className="">
-      <section id="banner" className="relative aspect-[16/5] z-10">
+      <section id="banner" className="relative h-[34rem] z-10">
         <div className="">
           <img
-            className="aspect-[16/5] object-cover bg-no-repeat w-full h-[50dvh]"
+            className="h-[34rem] object-cover bg-no-repeat w-full"
             src="/Banner/iStock-2164382354.jpg"
             alt="Banner"
           />
           <div
-            className="object-cover object-center bg-no-repeat absolute top-0 left-0 z-[10] w-full h-[50dvh]"
+            className="object-cover object-center bg-no-repeat absolute top-0 left-0 z-[10] w-full h-[34rem]"
             style={{
               backgroundColor: "rgba(0, 75, 15, 0.4)",
             }}
@@ -48,7 +48,7 @@ const PortalScreen = () => {
       </section>
       <section
         id=""
-        className="mt-[-50dvh] relative z-20 min-h-[515px] mx-auto container"
+        className="mt-[-30rem] relative z-20 min-h-[515px] mx-auto container"
       >
         <h1 className="text-[2rem] font-bold text-center text-white drop-shadow-[0px_4px_4px_rgba(0,0,0,0.7)]">
           ระบบบริการตรวจสอบข้อมูลภาษี
@@ -60,7 +60,6 @@ const PortalScreen = () => {
               title={_.title}
               description={_.description}
               image={_.image}
-              alt={_.alt}
               href={_.href}
             />
           ))}
