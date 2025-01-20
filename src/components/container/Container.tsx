@@ -1,21 +1,31 @@
 import { useRouter } from "next/navigation";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useCallback } from "react";
 import { IoArrowBack } from "react-icons/io5";
 
 interface ContainerProps {
-  children: ReactNode;
+  children?: ReactNode;
   hiddenBanner?: boolean;
   backButtonText?: string | ReactNode;
   classnameDiv?: string;
+  onClickBackBtn?: Function
 }
 
 const Container: React.FC<ContainerProps> = ({
   children,
   hiddenBanner = false,
-  backButtonText = "กลับ",
+  backButtonText = "ย้อนกลับ",
   classnameDiv = "",
+  onClickBackBtn
 }) => {
   const router = useRouter();
+
+  const handleClickBackBtn = useCallback(()=>{
+    if(typeof onClickBackBtn === "function"){
+      onClickBackBtn()
+    }else{
+      router.push("/portal")
+    }
+  },[router, onClickBackBtn])
 
   return (
     <div className={classnameDiv}>
@@ -24,9 +34,7 @@ const Container: React.FC<ContainerProps> = ({
         <div className="absolute w-full h-32 -top-32 left-0 grid grid-cols-3 items-end">
           <div
             className="flex h-full items-center gap-4 text-white cursor-pointer hover:text-light-green transition-colors"
-            onClick={() => {
-              router.push("/portal");
-            }}
+            onClick={handleClickBackBtn}
           >
             <IoArrowBack />
             <span className="font-bold text-sm1">{backButtonText}</span>
