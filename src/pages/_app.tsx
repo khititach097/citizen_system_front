@@ -3,6 +3,9 @@ import theme from "@/theme/themeConfig";
 import { ConfigProvider } from "antd";
 import type { AppProps } from "next/app";
 import { Noto_Sans_Thai } from "next/font/google";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useState } from "react";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 const notoSansThai = Noto_Sans_Thai({
   subsets: ["latin", "thai"],
@@ -10,11 +13,17 @@ const notoSansThai = Noto_Sans_Thai({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
+    <QueryClientProvider client={queryClient}>
     <div className={notoSansThai.className}>
       <ConfigProvider theme={theme}>
         <Component {...pageProps} />
       </ConfigProvider>
     </div>
+    <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
