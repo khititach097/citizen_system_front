@@ -25,7 +25,7 @@ const PortalScreen = () => {
       title: "แสดงรายการทรัพย์สิน",
       description: "การแสดงรายการทรัพย์สินในกรรมสิทธิ์ของท่าน",
       image: "/Services/service3.svg",
-      href: "",
+      href: "/asset-list",
     },
   ];
 
