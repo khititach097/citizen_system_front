@@ -1,11 +1,9 @@
 import { Field } from "@/components/field";
-import Table from "@/components/table/v2/Table";
 import { Button, DatePicker, Divider, Pagination } from "antd";
 import React from "react";
 import { FaPlus } from "react-icons/fa6";
-import { IoArrowBack } from "react-icons/io5";
-import ManageRequestTable from "../shared/ManageRequestTable";
 import { useRouter } from "next/navigation";
+import Container from "@/components/container/Container";
 
 type Props = {};
 
@@ -17,21 +15,7 @@ const ManageRequestScreen = (props: Props) => {
   return (
     <div className="pb-24">
       <div className="h-64 =aspect-[6/1] w-full bg-primary-2"></div>
-      <div className="bg-white rounded-2xl py-11 container mx-auto relative -mt-32 border-[#0000000D] border-2">
-        <div className="absolute w-full h-32 -top-32 left-0 grid grid-cols-3 items-end">
-          <div
-            className="flex h-full items-center gap-4 text-white cursor-pointer hover:text-light-green transition-colors"
-            onClick={() => {
-              router.push("/portal");
-            }}
-          >
-            <IoArrowBack />
-            <span className="font-bold text-sm1">กลับสู่ระบบ</span>
-          </div>
-          <div>
-            <img src="/Banner/Banner-crop.png" alt="logo" className="" />
-          </div>
-        </div>
+      <Container backButtonText="กลับสู่ระบบ">
         <div className="px-9">
           <div className="flex justify-between items-end">
             <div>
@@ -99,8 +83,7 @@ const ManageRequestScreen = (props: Props) => {
             <Button type="primary">ยืนยัน</Button>
           </div>
         </div>
-        <ManageRequestTable />
-      </div>
+      </Container>
     </div>
   );
 };

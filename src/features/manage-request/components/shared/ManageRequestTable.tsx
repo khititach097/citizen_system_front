@@ -1,8 +1,6 @@
 import Table from "@/components/table/v2/Table";
-import { TableColumnType } from "antd";
 import { ColumnType } from "antd/lib/table";
-import React, { JSX } from "react";
-import { ManageRequestTableType } from "../utils/responseType";
+import { ManageRequestTableType } from "../../utils/responseType";
 
 type Props = {};
 
