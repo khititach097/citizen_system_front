@@ -6,17 +6,19 @@ interface ContainerProps {
   children: ReactNode;
   hiddenBanner?: boolean;
   backButtonText?: string | ReactNode;
+  classnameDiv?: string;
 }
 
 const Container: React.FC<ContainerProps> = ({
   children,
   hiddenBanner = false,
   backButtonText = "กลับ",
+  classnameDiv = "",
 }) => {
   const router = useRouter();
 
   return (
-    <div className="pb-24">
+    <div className={classnameDiv}>
       <div className="h-64 w-full bg-primary-2"></div>
       <div className="bg-white rounded-2xl py-11 container mx-auto relative -mt-32 border-[#0000000D] border-2 min-h-40">
         <div className="absolute w-full h-32 -top-32 left-0 grid grid-cols-3 items-end">

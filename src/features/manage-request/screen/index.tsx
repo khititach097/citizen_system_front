@@ -14,7 +14,7 @@ const ManageRequestScreen = (props: Props) => {
   const router = useRouter();
 
   return (
-    <Container backButtonText="กลับสู่ระบบ">
+    <Container classnameDiv="pb-24" backButtonText="กลับสู่ระบบ">
       <div className="px-9">
         <div className="flex justify-between items-end">
           <div>
