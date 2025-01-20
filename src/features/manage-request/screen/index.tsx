@@ -4,6 +4,7 @@ import React from "react";
 import { FaPlus } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
 import Container from "@/components/container/Container";
+import ManageRequestTable from "../components/shared/ManageRequestTable";
 
 type Props = {};
 
@@ -83,6 +84,7 @@ const ManageRequestScreen = (props: Props) => {
             <Button type="primary">ยืนยัน</Button>
           </div>
         </div>
+        <ManageRequestTable />
       </Container>
     </div>
   );
