@@ -12,6 +12,7 @@ module.exports = {
         "primary-4": "#F0FFF5", //bg for card container header
         "text-green-1": "#01443F", //for
         "text-green-2": "#015850", //for main title
+        "text-gray-1": "#4A5568",
         green: "#3EAF3F",
         "light-green": "#F3FFE8",
         "grey-1": "#778F9B",
