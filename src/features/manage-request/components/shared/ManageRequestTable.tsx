@@ -1,6 +1,8 @@
 import Table from "@/components/table/v2/Table";
 import { ColumnType } from "antd/lib/table";
 import { ManageRequestTableType } from "../../utils/responseType";
+import { EmptyStatus } from "@/components/emptyStatus";
+// import { emptyStatus } from "@/components/emptyStatus";
 
 type Props = {};
 
@@ -140,48 +142,6 @@ const ManageRequestTable = (props: Props) => {
     },
   ];
 
-  const emptyStatus = (muni_correct: boolean) => {
-    let src: string;
-    let alt: string = "empty-data";
-    let title: string;
-    let desc;
-
-    switch (muni_correct) {
-      case true:
-        src = "/info/info.svg";
-        title = "ไม่พบคำร้องของคุณ";
-        desc = (
-          <>
-            <p>เริ่มต้นสร้างคำร้องของคุณ</p>
-            <p className="leading-[12px]">ด้วยการกดปุ่ม “ สร้างคำร้องใหม่ “</p>
-          </>
-        );
-        break;
-      default:
-        src = "/info/info2.svg";
-        title = "ขออภัย";
-        desc = (
-          <>
-            <p>เขต/เทศบาล ของคุณไม่สามารถใช้งานระบบได้</p>
-            <p className="leading-[12px]">
-              คุณสามารถติดต่อ เขต/เทศบาล ในพื้นที่ได้โดยตรง
-            </p>
-          </>
-        );
-        break;
-    }
-
-    return (
-      <div className="flex flex-col items-center justify-center pt-16 pb-6">
-        <img src={src} alt={alt} />
-        <div className="pt-6">
-          <p className="text-black text-base font-bold">{title}</p>
-          <div className="text-grey-1">{desc}</div>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <div className="pt-2">
       <Table
@@ -198,7 +158,14 @@ const ManageRequestTable = (props: Props) => {
         // onChange={onChange}
         // onRow={_onRow}
         locale={{
-          emptyText: emptyStatus(true),
+          // emptyText: emptyStatus(true),
+          emptyText: (
+            <EmptyStatus
+              status="empty"
+              statusTextTitle="เริ่มต้นสร้างคำร้องของคุณ"
+              statusTextDescription="ด้วยการกดปุ่ม “ สร้างคำร้องใหม่ “"
+            />
+          ),
         }}
         style={{
           overflowX: "auto",

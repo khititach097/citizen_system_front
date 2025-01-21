@@ -1,0 +1,11 @@
+.ant-card .ant-card-head {
+  @apply rounded-t-2xl;
+}
+
+.ant-card {
+  @apply rounded-2xl;
+}
+
+.ant-card .ant-card-head.header-primary-3 {
+  @apply bg-primary-3;
+}

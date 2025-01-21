@@ -36,8 +36,10 @@ const Container: React.FC<ContainerProps> = ({
             className="flex h-full items-center gap-4 text-white cursor-pointer hover:text-light-green transition-colors"
             onClick={handleClickBackBtn}
           >
-            <IoArrowBack />
-            <span className="font-bold text-sm1">{backButtonText}</span>
+            <div className=" text-white cursor-pointer hover:text-light-green transition-all">
+              <IoArrowBack className="inline" />
+              <span className="font-bold text-sm1 pl-2">{backButtonText}</span>
+            </div>
           </div>
           {!hiddenBanner && (
             <div>
