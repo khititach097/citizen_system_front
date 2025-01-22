@@ -62,7 +62,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
   const getTextOwnerLineLabel = useCallback(
     (ownerData: LandOwnerType): string => {
       if (!ownerData?.owner_line_no) {
-        return "";
+        return " ";
       }
       return ownerData?.owner_line_no === "1"
         ? `เจ้าของหลัก ( ผู้รับผิดชอบภาษี )`
@@ -71,14 +71,20 @@ const LandTabScreen: React.FC<Props> = (props) => {
     []
   );
 
-  const ownerAddress = useCallback((owner: LandOwnerType)=>{
-    return `บ้านเลขที่ ${owner?.address_house_number || ""} หมู่ที่/ชุมชน ${owner?.address_zone || ""} ตำบล/แขวง ${owner?.sub_district_name || ""} อำเภอ/เขต ${owner?.district_name || ""} จังหวัด ${owner?.province_name || ""} รหัสไปรษณีย์ ${owner?.address_postcode}`
-  },[])
+  const ownerAddress = useCallback((owner: LandOwnerType) => {
+    return `บ้านเลขที่ ${owner?.address_house_number || " "} หมู่ที่/ชุมชน ${
+      owner?.address_zone || " "
+    } ตำบล/แขวง ${owner?.sub_district_name || " "} อำเภอ/เขต ${
+      owner?.district_name || " "
+    } จังหวัด ${owner?.province_name || " "} รหัสไปรษณีย์ ${
+      owner?.address_postcode
+    }`;
+  }, []);
 
-  return ( 
+  return (
     <>
       <CardContainer
-        rootClassName={`w-full bg-white pt-9 px-9 pb-2 rounded-2xl`}
+        rootClassName={`w-full bg-white setBuildingImages px-9 pb-2 rounded-2xl`}
         title="ข้อมูลแปลงที่ดิน"
         icon={<MapIcon />}
       >
@@ -86,7 +92,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
           <Col span={24}>
             <Field.Input
               classnamediv="text-base"
-              id=""
+              id=" "
               label="ประเภทเอกสาร"
               value={landInfo.land_info.land_info_detail.doc_type_name}
               size="large"
@@ -97,7 +103,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
           <Col span={12}>
             <Field.Input
               classnamediv="text-base"
-              id=""
+              id=" "
               label="เลขที่เอกสาร"
               value={landInfo.land_info.land_info_detail.doc_type_name}
               size="large"
@@ -156,7 +162,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
           <Col span={12}>
             <Field.Input
               classnamediv="text-base"
-              id=""
+              id=" "
               label="เลขที่ดิน"
               value={landInfo.land_info.land_info_detail.land_no}
               size="large"
@@ -166,7 +172,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
           <Col span={12}>
             <Field.Input
               classnamediv="text-base"
-              id=""
+              id=" "
               label="หน้าสำรวจ"
               value={landInfo.land_info.land_info_detail.deed_no}
               size="large"
@@ -176,7 +182,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
           <Col span={12}>
             <Field.Input
               classnamediv="text-base"
-              id=""
+              id=" "
               label="หมู่ที่"
               value={landInfo.land_info.land_info_detail.land_zone}
               size="large"
@@ -186,7 +192,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
           <Col span={12}>
             <Field.Input
               classnamediv="text-base"
-              id=""
+              id=" "
               label="ถนน"
               value={landInfo.land_info.land_info_detail.road}
               size="large"
@@ -196,7 +202,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
           <Col span={12}>
             <Field.Input
               classnamediv="text-base"
-              id=""
+              id=" "
               label="อำเภอ/เขต"
               value={landInfo.land_info.land_info_detail.district_name_t}
               size="large"
@@ -206,7 +212,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
           <Col span={12}>
             <Field.Input
               classnamediv="text-base"
-              id=""
+              id=" "
               label="ตำบล/แขวง"
               value={landInfo.land_info.land_info_detail.subdistrict_name_t}
               size="large"
@@ -261,7 +267,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
           <Col span={12}>
             <Field.Input
               classnamediv="text-base"
-              id=""
+              id=" "
               label="ราคาประเมินที่ดิน"
               value={
                 landInfo.land_info.land_info_detail.is_estimated_by_treasury
@@ -276,7 +282,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
         </Row>
       </CardContainer>
       <CardContainer
-        rootClassName={`w-full bg-white pt-9 px-9 pb-2 rounded-2xl`}
+        rootClassName={`w-full bg-white setBuildingImages px-9 pb-2 rounded-2xl`}
         title="การใช้ประโยชน์ที่ดิน"
         icon={<MapIcon />}
       >
@@ -325,7 +331,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
               <Col span={12}>
                 <Field.Input
                   classnamediv="text-base"
-                  id=""
+                  id=" "
                   label="ลักษณะการใช้"
                   value={
                     eachLandUsed.using_rent_id === 0 ? "ใช้เอง" : "ให้เช่า"
@@ -337,7 +343,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
               <Col span={12}>
                 <Field.Input
                   classnamediv="text-base"
-                  id=""
+                  id=" "
                   label="การใช้ประโยชน์"
                   value={eachLandUsed.using_type_detail}
                   size="large"
@@ -347,7 +353,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
               <Col span={12}>
                 <Field.Input
                   classnamediv="text-base"
-                  id=""
+                  id=" "
                   label="ลักษณะพิเศษ (ใช้ในการลดหย่อนภาษี)"
                   value={eachLandUsed.tax_deduction_detail}
                   size="large"
@@ -359,7 +365,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
         })}
       </CardContainer>
       <CardContainer
-        rootClassName={`w-full bg-white pt-9 px-9 pb-2 rounded-2xl`}
+        rootClassName={`w-full bg-white setBuildingImages px-9 pb-2 rounded-2xl`}
         title="รูปภาพ"
         icon={<MapIcon />}
       >
@@ -389,7 +395,7 @@ const LandTabScreen: React.FC<Props> = (props) => {
           ))}
       </CardContainer>
       <CardContainer
-        rootClassName={`w-full bg-white pt-9 px-9 pb-2 rounded-2xl`}
+        rootClassName={`w-full bg-white setBuildingImages px-9 pb-2 rounded-2xl`}
         title="ข้อมูลเจ้าของสิ่งปลูกสร้าง "
         icon={<PersonIcon />}
       >
@@ -410,20 +416,47 @@ const LandTabScreen: React.FC<Props> = (props) => {
                 <Row className="mb-5">
                   <Col span={8}>
                     <div className="flex flex-col px-4 border-r border-gray-300">
-                      <Text className="font-extrabold">{owner?.text_full_name || ""}</Text>
-                      <Text>{owner.person_type_name || ""}</Text>
+                      <Text className="font-extrabold">
+                        {owner?.text_full_name || ""}
+                      </Text>
+                      {owner?.text_full_name ? (
+                        <Text>{owner.person_type_name}</Text>
+                      ) : (
+                        <>
+                          <Text>{owner.person_type_name}</Text>
+                          <Text>&nbsp;</Text>
+                        </>
+                      )}
                     </div>
                   </Col>
                   <Col span={8}>
                     <div className="flex flex-col px-4 border-r border-gray-300">
-                      <Text className="font-semibold">{owner?.tax_id || ""}</Text>
-                      <Text>เลขประจำตัวผู้เสียภาษี</Text>
+                      <Text className="font-semibold">
+                        {owner?.tax_id || ""}
+                      </Text>
+                      {owner?.tax_id ? (
+                        <Text>เลขประจำตัวผู้เสียภาษี</Text>
+                      ) : (
+                        <>
+                          <Text>เลขประจำตัวผู้เสียภาษี</Text>
+                          <Text>&nbsp;</Text>
+                        </>
+                      )}
                     </div>
                   </Col>
                   <Col span={8}>
                     <div className="flex flex-col px-4">
-                      <Text className="font-semibold">{owner?.phone_number || ""}</Text>
-                      <Text>เบอร์ติดต่อ</Text>
+                      <Text className="font-semibold">
+                        {owner?.phone_number || ""}
+                      </Text>
+                      {owner?.phone_number ? (
+                        <Text>เบอร์ติดต่อ</Text>
+                      ) : (
+                        <>
+                          <Text>&nbsp;</Text>
+                          <Text>เบอร์ติดต่อ</Text>
+                        </>
+                      )}
                     </div>
                   </Col>
                 </Row>

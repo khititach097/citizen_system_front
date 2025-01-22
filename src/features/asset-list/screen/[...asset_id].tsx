@@ -47,7 +47,7 @@ const AssetDetailById = () => {
       const usingDate =
         landInfo?.latest_survey_request?.updated_at ??
         landInfo?.latest_survey_request?.created_at ??
-        "";
+        " ";
     
       if (usingDate) {
         // Convert to Thai date
@@ -59,7 +59,7 @@ const AssetDetailById = () => {
         return thaiDate; // Return formatted Thai date
       }
     
-      return ""; // Return empty string if no date
+      return " "; // Return empty string if no date
     }, [landInfo]);
 
   return (
@@ -73,7 +73,7 @@ const AssetDetailById = () => {
         {selectTab === "2" && landInfo  && <BuildingsTabScreen landInfo={landInfo}/>}
         {selectTab === "3" && landInfo  && <SignboardsTabScreen landInfo={landInfo}/>}
       </div>
-      {landInfo && <pre>{JSON.stringify(landInfo, null, 2)}</pre>}
+      {/* {landInfo && <pre>{JSON.stringify(landInfo, null, 2)}</pre>} */}
     </Container>
   );
 };

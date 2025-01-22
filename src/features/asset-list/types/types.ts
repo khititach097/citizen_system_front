@@ -400,6 +400,7 @@ export interface SignboardInfoType {
   address_street: string
   address_sub_district_id: number
   address_zone: string
+  address_village_name: string
   asset_images: AssetImageType[]
   cancel_at: string
   cancel_by: string
@@ -443,6 +444,11 @@ export interface SignboardInfoType {
   utm_map1: string
   utm_map2: string
   utm_map3: string
+  address_postcode: string
+  district_name: string
+  province_name: string
+  subdistrict_name: string
+  signboard_name: string
 }
 
 export interface SignboardOwnerType {
@@ -490,4 +496,9 @@ export interface SignboardOwnerType {
   tax_id: string
   text_full_name: string
   updated_at: string
+}
+
+export interface antOptionType {
+  value: string
+  label: string
 }
