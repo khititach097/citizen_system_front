@@ -10,6 +10,7 @@ module.exports = {
         "primary-2": "#02A998", //new color for main header
         "primary-3": "#007468", //banner color
         "primary-4": "#F0FFF5", //bg for card container header
+        "primary-5": "#f5fefd", //bg for address bg
         "text-green-1": "#01443F", //for
         "text-green-2": "#015850", //for main title
         "text-gray-1": "#4A5568",

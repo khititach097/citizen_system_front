@@ -8,7 +8,8 @@ import { Tabs, TabsProps } from 'antd';
 import LandTabScreen from './landTabScreen';
 import BuildingsTabScreen from './buildingsTabScreen';
 import SignboardsTabScreen from './signboardsTabScreen';
-import { LandInfoType } from '../types/types';
+import dayjs from "dayjs";
+import "dayjs/locale/th";
 
 const { Text } = Typography
 
@@ -42,12 +43,31 @@ const AssetDetailById = () => {
       },
     ];
 
+    const genDate = useCallback(() => {
+      const usingDate =
+        landInfo?.latest_survey_request?.updated_at ??
+        landInfo?.latest_survey_request?.created_at ??
+        "";
+    
+      if (usingDate) {
+        // Convert to Thai date
+        const thaiDate = dayjs(usingDate)
+          .locale("th")
+          .add(543, "year") // Adjust to Thai Buddhist calendar year
+          .format("DD MMMM YYYY"); // Format the date
+    
+        return thaiDate; // Return formatted Thai date
+      }
+    
+      return ""; // Return empty string if no date
+    }, [landInfo]);
+
   return (
     <Container onClickBackBtn={handleClickBackBtn}>
       <div className='flex flex-col items-center'>
         <Text className='text-text-green-1 font-bold text-lg mb-2'>รายการทรัพย์สิน</Text>
         <Text className='mb-7'>เลือกทรัพย์สินของท่านที่ต้องการดูรายละเอียด</Text>
-        <Text className='flex items-center gap-2 mb-7'> <LuCalendar /> ข้อมูลล่าสุด ณ วันที่ 07 มีนาคม 2566</Text>
+        <Text className='flex items-center gap-2 mb-7'> <LuCalendar /> ข้อมูลล่าสุด ณ วันที่ {genDate()}</Text>
         <Tabs defaultActiveKey="1" items={items} onChange={(key)=>setSelectTab(key)} />
         {selectTab === "1" && landInfo && <LandTabScreen landInfo={landInfo}/>}
         {selectTab === "2" && landInfo  && <BuildingsTabScreen landInfo={landInfo}/>}

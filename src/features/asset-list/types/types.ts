@@ -178,13 +178,15 @@ export interface BuildingType {
   building_build_area: number
   building_code: string
   building_design_type_id: number
+  building_design_type_name: string
   building_house_code: string
   building_length_meter: number
   building_no: string
   building_owners: BuildingOwnerType[]
   building_total_floor: number
   building_total_room: number
-  building_type_name: string
+  building_main_type_name: string
+  building_sub_type_name: string
   building_type_year: string
   building_used_id: string
   building_width_meter: number
@@ -229,6 +231,39 @@ export interface BuildingType {
   utm_map3: string
   utm_map4: string
   utm_scale: string
+  building_used: BuildingUsedType
+}
+
+export interface BuildingUsedType {
+  area_length: number
+  area_width: number
+  building_cultivation_space_square_meter: number
+  building_empty_space_square_meter: number
+  building_etc_square_meter: number
+  building_for_rent_square_meter: number
+  building_household_type_id: number
+  building_id: string
+  building_self_using_square_meter: number
+  building_using_type_id: number
+  created_at: string
+  created_by: string
+  deleted_at: string
+  deleted_by: string
+  floor_no: string
+  full_area_check: boolean
+  household_type_name: string
+  id: string
+  muni_code: string
+  non_specific: number
+  notes: string
+  property_rent_type_id: number
+  rent_type_detail: string
+  source_dt: string
+  tax_year: string
+  updated_at: string
+  updated_by: string
+  used_type: string
+  using_type_detail: string
 }
 
 export interface BuildingOwnerType {

@@ -39,8 +39,8 @@ const LandTabScreen: React.FC<Props> = (props) => {
 
   useEffect(() => {
     // Create URLs and add to landImages
-    console.log("imageQueries ***>>>", imageQueries);
-    console.log("landImages ***>>>", landImages);
+    // console.log("imageQueries ***>>>", imageQueries);
+    // console.log("landImages ***>>>", landImages);
 
     imageQueries.forEach((query) => {
       if (query.data && !processedImages.current.has(query.data)) {
@@ -71,7 +71,11 @@ const LandTabScreen: React.FC<Props> = (props) => {
     []
   );
 
-  return (
+  const ownerAddress = useCallback((owner: LandOwnerType)=>{
+    return `บ้านเลขที่ ${owner?.address_house_number || ""} หมู่ที่/ชุมชน ${owner?.address_zone || ""} ตำบล/แขวง ${owner?.sub_district_name || ""} อำเภอ/เขต ${owner?.district_name || ""} จังหวัด ${owner?.province_name || ""} รหัสไปรษณีย์ ${owner?.address_postcode}`
+  },[])
+
+  return ( 
     <>
       <CardContainer
         rootClassName={`w-full bg-white pt-9 px-9 pb-2 rounded-2xl`}
@@ -359,28 +363,30 @@ const LandTabScreen: React.FC<Props> = (props) => {
         title="รูปภาพ"
         icon={<MapIcon />}
       >
-        {loading && <div>Loading images...</div>}
-        {error && <div>Error loading some images</div>}
-        {!loading && !error && (
-          <Image.PreviewGroup
-            preview={{
-              onChange: (current, prev) =>
-                console.log(`current index: ${current}, prev index: ${prev}`),
-            }}
-          >
-            <div className="flex flex-wrap gap-2">
-              {landImages.map((image, index) => (
-                <Image
-                  key={index}
-                  width={200}
-                  src={image}
-                  alt={`Land image ${index + 1}`}
-                  className="rounded-lg"
-                />
-              ))}
-            </div>
-          </Image.PreviewGroup>
-        )}
+        {!loading &&
+          !error &&
+          (landImages.length ? (
+            <Image.PreviewGroup
+              preview={{
+                onChange: (current, prev) =>
+                  console.log(`current index: ${current}, prev index: ${prev}`),
+              }}
+            >
+              <div className="flex flex-wrap gap-2">
+                {landImages.map((image, index) => (
+                  <Image
+                    key={index}
+                    width={200}
+                    src={image}
+                    alt={`Land image ${index + 1}`}
+                    className="rounded-lg"
+                  />
+                ))}
+              </div>
+            </Image.PreviewGroup>
+          ) : (
+            <Empty description="ไม่พบรูปภาพ" />
+          ))}
       </CardContainer>
       <CardContainer
         rootClassName={`w-full bg-white pt-9 px-9 pb-2 rounded-2xl`}
@@ -401,24 +407,34 @@ const LandTabScreen: React.FC<Props> = (props) => {
                   contentClassName="mt-0"
                   icon={null}
                 />
-                <Row>
+                <Row className="mb-5">
                   <Col span={8}>
-                    <div className="flex flex-col px-4">
-                      <Text>นายภาทร เลิศวิทยา</Text>
-                      <Text>บุคคลธรรมดา</Text>
+                    <div className="flex flex-col px-4 border-r border-gray-300">
+                      <Text className="font-extrabold">{owner?.text_full_name || ""}</Text>
+                      <Text>{owner.person_type_name || ""}</Text>
                     </div>
                   </Col>
                   <Col span={8}>
-                    <div className="flex flex-col px-4">
-                      <Text>8011897502984</Text>
+                    <div className="flex flex-col px-4 border-r border-gray-300">
+                      <Text className="font-semibold">{owner?.tax_id || ""}</Text>
                       <Text>เลขประจำตัวผู้เสียภาษี</Text>
                     </div>
                   </Col>
                   <Col span={8}>
                     <div className="flex flex-col px-4">
-                      <Text>084-246-7716</Text>
+                      <Text className="font-semibold">{owner?.phone_number || ""}</Text>
                       <Text>เบอร์ติดต่อ</Text>
                     </div>
+                  </Col>
+                </Row>
+                <Row className="bg-primary-5 p-5" gutter={[2, 2]}>
+                  <Col span={24}>
+                    <Text className="font-extrabold">
+                      ที่อยู่เจ้าของทรัพย์สิน
+                    </Text>
+                  </Col>
+                  <Col span={24}>
+                    <Text>{ownerAddress(owner)}</Text>
                   </Col>
                 </Row>
               </div>
