@@ -1,5 +1,4 @@
 import { Divider } from "antd";
-import { useState } from "react";
 
 type Props = {
   data?: any;
@@ -7,15 +6,15 @@ type Props = {
   onExpandedClick: (expanded: boolean) => void;
 };
 
-const ListSigns = (props: Props) => {
+const ListApartments = (props: Props) => {
   const { data, expanded, onExpandedClick } = props;
 
   const mockData = [
-    { id: 1, content: "Mock data item 1" },
-    { id: 2, content: "Mock data item 2" },
-    { id: 3, content: "Mock data item 3" },
-    { id: 4, content: "Mock data item 4" },
-    { id: 5, content: "Mock data item 5" },
+    { id: 1, name: "Apartment A", size: "200 (ตร.ม)", floor: 6, code: "123/1" },
+    { id: 2, name: "Apartment B", size: "150 (ตร.ม)", floor: 5, code: "124/1" },
+    { id: 3, name: "Apartment C", size: "180 (ตร.ม)", floor: 4, code: "125/1" },
+    { id: 4, name: "Apartment D", size: "220 (ตร.ม)", floor: 3, code: "126/1" },
+    { id: 5, name: "Apartment E", size: "250 (ตร.ม)", floor: 2, code: "127/1" },
   ];
 
   return (
@@ -32,15 +31,14 @@ const ListSigns = (props: Props) => {
               <div className="aspect-square bg-slate-300 rounded-2xl"></div>
             </div>
             <div className="w-2/6">
-              <h4 className="font-bold text-text-green-1">ข้อมูลป้าย</h4>
+              <h4 className="font-bold text-text-green-1">ข้อมูลห้องชุด</h4>
               <div className="pt-4 flex flex-col gap-2 text-base">
-                <p className="line-clamp-1">{`ข้อความบนป้าย : ป้อนยา`}</p>
-                <p className="line-clamp-1">{`ขนาดป้าย: 200 x 250 ซม.`}</p>
-                <p className="line-clamp-1">{`จำนวน: 1 ด้าน`}</p>
-                <p className="line-clamp-1">{`ประเภท: 1(ก.)`}</p>
+                <p className="line-camp-1">เลขรหัสประจำบ้าน : 123/1</p>
+                <p className="line-clamp-1">เลขที่ห้องชุด : 123/1</p>
+                <p className="line-clamp-1">ชั้นที่ : 6</p>
+                <p className="line-clamp-1">ขนาด : 200 (ตร.ม)</p>
               </div>
             </div>
-
             <div className="w-3/6"></div>
           </div>
         ))}
@@ -59,4 +57,4 @@ const ListSigns = (props: Props) => {
   );
 };
 
-export default ListSigns;
+export default ListApartments;

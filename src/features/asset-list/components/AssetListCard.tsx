@@ -5,6 +5,7 @@ import { LuMap } from "react-icons/lu";
 import ListLandDetails from "./shared/ListLandDetails";
 import ListBuildings from "./shared/ListBuildings";
 import ListSigns from "./shared/ListSigns";
+import ListApartments from "./shared/ListApartments";
 
 type Props = {
   data?: any;
@@ -73,6 +74,16 @@ const AssetListCard = (props: Props) => {
             key: "signs",
             children: (
               <ListSigns
+                expanded={expanded}
+                onExpandedClick={handleExpandedClick}
+              />
+            ),
+          },
+          {
+            label: `ห้องชุด ( 2 )`,
+            key: "apartments",
+            children: (
+              <ListApartments
                 expanded={expanded}
                 onExpandedClick={handleExpandedClick}
               />
