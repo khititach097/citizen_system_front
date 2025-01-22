@@ -1,21 +1,19 @@
 // src/lib/tanstack.ts
 import { QueryClient } from '@tanstack/react-query';
-import { cache } from 'react';
 
-// Create a client
-const getQueryClient = cache(() => new QueryClient({
-  defaultOptions: {
-    queries: {
-      // Good defaults for web apps
-      staleTime: 60 * 1000, // 1 minute
-      gcTime: 5 * 60 * 1000, // 5 minutes
-      retry: 1,
-      refetchOnWindowFocus: false,
+const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        // Good defaults for web apps
+        // staleTime: 60 * 1000, // 1 minute
+        // gcTime: 5 * 60 * 1000, // 5 minutes
+        // retry: 1,
+        refetchOnWindowFocus: false,
+      },
     },
-  },
-}));
+  })
 
-export default getQueryClient;
+export default queryClient;
 
 // // src/lib/providers.tsx
 // import { QueryClientProvider } from '@tanstack/react-query';

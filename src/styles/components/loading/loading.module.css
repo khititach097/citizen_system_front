@@ -1,0 +1,29 @@
+
+
+.bgLoading {
+    background-color: rgba(0, 0, 0 , 50%)  ;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    position: absolute;
+    /* top: 50vh;
+    left: 50vw; */
+}
+
+.loading_overlay_screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9994;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    filter: alpha(opacity=50);
+  }

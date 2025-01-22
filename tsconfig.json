@@ -17,6 +17,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/hook/api/tanstack.tsป"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/hook/api/tanstack.ts"],
   "exclude": ["node_modules"]
 }

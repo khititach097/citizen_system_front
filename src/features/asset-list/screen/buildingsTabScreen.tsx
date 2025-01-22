@@ -1,6 +1,11 @@
 import React from 'react'
+import { AssetDataType } from '../types/types'
 
-const BuildingsTabScreen = () => {
+interface Props {
+  landInfo:AssetDataType
+}
+
+const BuildingsTabScreen: React.FC<Props> = (props) => {
   return (
     <div className='w-full'>BuildingsTabScreen</div>
   )

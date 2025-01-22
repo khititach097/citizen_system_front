@@ -8,6 +8,7 @@ import { Tabs, TabsProps } from 'antd';
 import LandTabScreen from './landTabScreen';
 import BuildingsTabScreen from './buildingsTabScreen';
 import SignboardsTabScreen from './signboardsTabScreen';
+import { LandInfoType } from '../types/types';
 
 const { Text } = Typography
 
@@ -17,16 +18,10 @@ const AssetDetailById = () => {
   const [selectTab, setSelectTab] = useState<string>("1")
 
   const {
-    data: asset,
+    data: landInfo,
     isLoading,
     error,
   } = useGetAssetByAssetId(typeof asset_id === 'string' ? asset_id : '');
-
-  // useEffect(() => {
-  //   if (error) {
-  //     router.push('/asset-list');
-  //   }
-  // }, [error, router]);
 
     const handleClickBackBtn = useCallback(()=>{
       router.push("/asset-list")
@@ -49,18 +44,16 @@ const AssetDetailById = () => {
 
   return (
     <Container onClickBackBtn={handleClickBackBtn}>
-      {/* <h1>Asset Detail</h1>
-      {isLoading && <p>Loading...</p>} */}
-      {asset && <pre>{JSON.stringify(asset, null, 2)}</pre>}
       <div className='flex flex-col items-center'>
         <Text className='text-text-green-1 font-bold text-lg mb-2'>รายการทรัพย์สิน</Text>
         <Text className='mb-7'>เลือกทรัพย์สินของท่านที่ต้องการดูรายละเอียด</Text>
         <Text className='flex items-center gap-2 mb-7'> <LuCalendar /> ข้อมูลล่าสุด ณ วันที่ 07 มีนาคม 2566</Text>
         <Tabs defaultActiveKey="1" items={items} onChange={(key)=>setSelectTab(key)} />
-        {selectTab === "1" && <LandTabScreen/>}
-        {selectTab === "2" && <BuildingsTabScreen/>}
-        {selectTab === "3" && <SignboardsTabScreen/>}
+        {selectTab === "1" && landInfo && <LandTabScreen landInfo={landInfo}/>}
+        {selectTab === "2" && landInfo  && <BuildingsTabScreen landInfo={landInfo}/>}
+        {selectTab === "3" && landInfo  && <SignboardsTabScreen landInfo={landInfo}/>}
       </div>
+      {landInfo && <pre>{JSON.stringify(landInfo, null, 2)}</pre>}
     </Container>
   );
 };

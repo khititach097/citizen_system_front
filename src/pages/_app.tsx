@@ -6,6 +6,7 @@ import { Noto_Sans_Thai } from "next/font/google";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState } from "react";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import queryClient from "@/utils/hook/api/tanstack";
 
 const notoSansThai = Noto_Sans_Thai({
   subsets: ["latin", "thai"],
@@ -13,8 +14,6 @@ const notoSansThai = Noto_Sans_Thai({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-
-  const [queryClient] = useState(() => new QueryClient());
 
   return (
     <QueryClientProvider client={queryClient}>
