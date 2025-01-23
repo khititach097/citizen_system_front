@@ -48,12 +48,13 @@ const ListBuildings = (props: Props) => {
 
   return (
     <div className="flex flex-col gap-6 pt-1">
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       <div
         className={`flex flex-col gap-6 overflow-hidden ${expanded ? "max-h-screen" : "max-h-[14rem]"}`}
       >
-        {mockData?.map((item) => (
+        {data?.map((item: any, index: number) => (
           <div
-            key={item.id}
+            key={index}
             className={`flex gap-6 ${expanded ? "min-h-0" : "min-h-[14rem]"}`}
           >
             <div className="w-1/6">
@@ -65,8 +66,12 @@ const ListBuildings = (props: Props) => {
               </h4>
               <div className="pt-4 flex flex-col gap-2 text-base">
                 <p className="line-camp-1">ประเภทสิ่งปลูกสร้าง : อาคารปูน</p>
-                <p className="line-camp-1">ขนาด : 80x80 = 19200 ตรม.</p>
-                <p className="line-camp-1">อายุสิ่งปลูกสร้าง : 12 ปี</p>
+                <p className="line-camp-1">
+                  {`ขนาด : ${item?.building_width_meter} x ${item?.building_length_meter} = ${Number(item?.building_width_meter * item?.building_length_meter).toFixed(2)} ตรม.`}
+                </p>
+                <p className="line-camp-1">
+                  {`อายุสิ่งปลูกสร้าง : ${item?.building_year_total} ปี`}
+                </p>
               </div>
             </div>
             <div className="w-3/6">
@@ -84,15 +89,17 @@ const ListBuildings = (props: Props) => {
         ))}
       </div>
 
-      <div>
-        <Divider className="my-4" />
-        <div
-          className="text-center underline cursor-pointer font-medium text-base hover:text-text-green-1 transition-colors"
-          onClick={() => onExpandedClick(!expanded)}
-        >
-          {expanded ? "ย่อลง" : "แสดงเพิ่มเติม"}
+      {data?.length > 1 && (
+        <div>
+          <Divider className="my-4" />
+          <div
+            className="text-center underline cursor-pointer font-medium text-base hover:text-text-green-1 transition-colors"
+            onClick={() => onExpandedClick(!expanded)}
+          >
+            {expanded ? "ย่อลง" : "แสดงเพิ่มเติม"}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -162,8 +162,13 @@ const ManageRequestTable = (props: Props) => {
           emptyText: (
             <EmptyStatus
               status="empty"
-              statusTextTitle="เริ่มต้นสร้างคำร้องของคุณ"
-              statusTextDescription="ด้วยการกดปุ่ม “ สร้างคำร้องใหม่ “"
+              title="ไม่พบคำร้องของคุณ"
+              subTitle={
+                <>
+                  <p>เริ่มต้นสร้างคำร้องของคุณ</p>
+                  <p>ด้วยการกดปุ่ม “ สร้างคำร้องใหม่ “</p>
+                </>
+              }
             />
           ),
         }}

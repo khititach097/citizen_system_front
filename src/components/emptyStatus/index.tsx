@@ -1,27 +1,21 @@
 type EmptyStatusProps = {
   status: "empty" | "muni_incorrect";
-  statusTextTitle?: string;
-  statusTextDescription?: string;
+  title?: string;
+  subTitle?: string | React.ReactNode;
 };
 
 export const EmptyStatus = (props: EmptyStatusProps) => {
-  const { status, statusTextTitle, statusTextDescription } = props;
+  let { status, title, subTitle } = props;
 
   let src: string;
   let alt: string = "empty-data";
-  let title: string;
-  let desc;
+  let desc: React.ReactNode;
 
   switch (status) {
     case "empty":
       src = "/info/info.svg";
-      title = "ไม่พบคำร้องของคุณ";
-      desc = (
-        <>
-          <p>{statusTextTitle}</p>
-          <p className="leading-[12px]">{statusTextDescription}</p>
-        </>
-      );
+      title = title ?? "ไม่พบคำร้องของคุณ";
+      desc = subTitle ?? "กรุณาตรวจสอบข้อมูลอีกครั้ง";
       break;
     case "muni_incorrect":
       src = "/info/info2.svg";

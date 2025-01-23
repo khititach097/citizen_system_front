@@ -27,7 +27,7 @@ const useGetAsset = () => {
       queryFn: async () => {
           dispatch(setLoading(true));
           const { data } = await axiosInstance.get(
-            `/api/v1/assets/get_asset_by_asset_id/${assetId}`
+            `/api/v1/assets/get_asset_by_asset_id/${assetId}`,
           );
           dispatch(setLoading(false));
           if (!data.success) {
@@ -48,7 +48,7 @@ const useGetAsset = () => {
           `/api/v1/s3/preview/${imgId}`,
           {
             responseType: "blob",
-          }
+          },
         );
         const newBlob = new Blob([data], { type: "image/jpg" });
         return URL.createObjectURL(newBlob);
@@ -68,23 +68,46 @@ const useGetAsset = () => {
               `/api/v1/s3/preview/${imgId}`,
               {
                 responseType: "blob",
-              }
+              },
             );
             const newBlob = new Blob([data], { type: "image/jpg" });
             return URL.createObjectURL(newBlob);
           },
           enabled: !!imgId,
         })),
-      [imgIds]
+      [imgIds],
     );
 
     return useQueries({ queries: queryConfigs });
+  };
+
+  const useGetAssetsByUserId = (user_id: string) => {
+    return useQuery({
+      queryKey: assetKeys.lists(),
+      queryFn: async () => {
+        try {
+          dispatch(setLoading(true));
+          const { data } = await axiosInstance.get(
+            `/api/v1/assets/get_asset_by_user_id/${user_id}`,
+          );
+          if (!data.success) {
+            throw new Error(data.message || "Failed to fetch assets list");
+          }
+          return data.data;
+        } catch (error) {
+          console.log(error);
+        } finally {
+          dispatch(setLoading(false));
+        }
+      },
+    });
   };
 
   return {
     useGetAssetByAssetId,
     useGetAssetImage,
     useGetAssetImages,
+    useGetAssetsByUserId,
   };
 };
 

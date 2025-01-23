@@ -34,5 +34,5 @@ body {
 }
 
 pre {
-  @apply p-4 bg-black rounded-lg text-yellow-300 text-base;
+  @apply p-4 bg-black rounded-lg text-yellow-300 text-base max-h-96 overflow-y-auto;
 }
