@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState } from "react";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import queryClient from "@/utils/hook/api/tanstack";
+import { Providers } from "@/store/provider";
 
 const notoSansThai = Noto_Sans_Thai({
   subsets: ["latin", "thai"],
@@ -18,9 +19,11 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
     <div className={notoSansThai.className}>
+    <Providers>
       <ConfigProvider theme={theme}>
         <Component {...pageProps} />
       </ConfigProvider>
+      </Providers>
     </div>
     <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

@@ -27,6 +27,7 @@
     "@types/mapbox-gl": "^3.4.1",
     "@types/numeral": "^2.0.5",
     "@types/react-slick": "^0.23.13",
+    "@types/redux-logger": "^3.0.13",
     "@vercel/functions": "^1.5.2",
     "antd": "^5.23.0",
     "apexcharts": "^4.3.0",

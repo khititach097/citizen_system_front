@@ -2,8 +2,8 @@
 import { Spin, SpinProps } from 'antd';
 import { LoadingOutlined } from "@ant-design/icons";
 import styles from '../../styles/components/loading/loading.module.css'
-import dynamic from 'next/dynamic';
 import animationLoading from '../../../public/lotties/loading.json';
+import dynamic from 'next/dynamic';
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 interface Props extends SpinProps {

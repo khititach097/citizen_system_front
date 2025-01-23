@@ -1,7 +1,7 @@
 import { Space } from 'antd'
 import React from 'react'
-import Loading from '../loading'
 import HomeOutlined from '../icons/homeOutlined'
+import Loading from '../loading'
 
 interface CardContainerProps extends React.PropsWithChildren {
   icon?: React.ReactNode
