@@ -25,20 +25,15 @@ const useGetAsset = () => {
     return useQuery({
       queryKey: assetKeys.detail(assetId),
       queryFn: async () => {
-        try {
           dispatch(setLoading(true));
           const { data } = await axiosInstance.get(
             `/api/v1/assets/get_asset_by_asset_id/${assetId}`
           );
+          dispatch(setLoading(false));
           if (!data.success) {
             throw new Error(data.message || "Failed to fetch asset details");
           }
           return data?.data as AssetDataType;
-        } catch (error) {
-          console.log(error);
-        } finally {
-          dispatch(setLoading(false));
-        }
       },
       enabled: !!assetId,
     });
