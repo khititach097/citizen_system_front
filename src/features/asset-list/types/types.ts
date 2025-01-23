@@ -1,4 +1,5 @@
 export interface AssetDataType {
+  asset_type: "land" | "condo"
   land_info: LandInfoType
   land_used_info: LandUsedInfoType[]
   latest_survey_request: LatestSurveyRequestType

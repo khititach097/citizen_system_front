@@ -1,6 +1,7 @@
 import axiosInstance from '@/utils/hook/api/axios';
 import { useQuery, useQueries } from '@tanstack/react-query';
 import { useMemo, useState, useEffect } from 'react';
+import { AssetDataType } from '../../types/types';
 
 // Query key factory
 export const assetKeys = {
@@ -22,7 +23,7 @@ export function useGetAssetByAssetId(assetId: string) {
       if (!data.success) {
         throw new Error(data.message || 'Failed to fetch asset details');
       }
-      return data?.data;
+      return data?.data as AssetDataType;
     },
     enabled: !!assetId,
   });

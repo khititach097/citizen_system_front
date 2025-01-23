@@ -14,7 +14,7 @@ import {
 import { Col, Image, Row, Typography } from "antd";
 import { Field } from "@/components/field";
 import Empty from "@/components/empty";
-import { useGetAssetImages } from "./api/useAssets";
+import { useGetAssetImages } from "../screen/api/useAssets";
 import CardContainer from "@/components/container/CardContainer";
 import MapIcon from "@/components/icons/MapIcon";
 import PersonIcon from "@/components/icons/PersonIcon";

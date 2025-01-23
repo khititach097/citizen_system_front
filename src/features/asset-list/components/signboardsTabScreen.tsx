@@ -11,7 +11,6 @@ import {
   SignboardInfoType,
   SignboardOwnerType,
 } from "../types/types";
-import { useGetAssetImages } from "./api/useAssets";
 import { Col, Image, Row, Typography } from "antd";
 import Empty from "@/components/empty";
 import { Field } from "@/components/field";
@@ -20,6 +19,7 @@ import MapIcon from "@/components/icons/MapIcon";
 import dayjs from "dayjs";
 import { isEmpty } from "lodash";
 import PersonIcon from "@/components/icons/PersonIcon";
+import { useGetAssetImages } from "../screen/api/useAssets";
 
 interface Props {
   landInfo: AssetDataType;

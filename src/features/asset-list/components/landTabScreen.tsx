@@ -11,9 +11,9 @@ import MapIcon from "@/components/icons/MapIcon";
 import PersonIcon from "@/components/icons/PersonIcon";
 import { Col, Image, Row, Typography } from "antd";
 import { Field } from "@/components/field";
-import { useGetAssetImages } from "./api/useAssets";
 import Empty from "@/components/empty";
 import { isEmpty } from "lodash";
+import { useGetAssetImages } from "../screen/api/useAssets";
 
 interface Props {
   landInfo: AssetDataType;
