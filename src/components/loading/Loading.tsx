@@ -1,10 +1,11 @@
 import React from 'react';
 import { Spin } from 'antd'; 
 import { useAppSelector } from '@/store/hooks';
+import { isLoadingSelector } from '@/store/selectors';
 
 const LoadingScreen: React.FC = () => {
 
-  const isLoading = useAppSelector(state=> state.local.loading.isLoading)
+  const isLoading = useAppSelector(isLoadingSelector)
   
   if(!isLoading){
     return (<></>)

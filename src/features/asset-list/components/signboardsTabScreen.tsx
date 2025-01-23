@@ -19,7 +19,7 @@ import MapIcon from "@/components/icons/MapIcon";
 import dayjs from "dayjs";
 import { isEmpty } from "lodash";
 import PersonIcon from "@/components/icons/PersonIcon";
-import { useGetAssetImages } from "../screen/api/useAssets";
+import useGetAsset from "../screen/api/useAssets";
 
 interface Props {
   landInfo: AssetDataType;
@@ -31,6 +31,8 @@ const SignboardsTabScreen: React.FC<Props> = (props) => {
   const { landInfo } = props;
 
   const processedImages = useRef(new Set<string>()); // Store the processed image URLs
+
+  const { useGetAssetImages } = useGetAsset()
 
   const [signboard, setSignboard] = useState<SignboardInfoType>();
   const [selectSignboard, setSelectsSignboard] = useState<antOptionType>({

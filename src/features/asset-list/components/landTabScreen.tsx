@@ -13,7 +13,7 @@ import { Col, Image, Row, Typography } from "antd";
 import { Field } from "@/components/field";
 import Empty from "@/components/empty";
 import { isEmpty } from "lodash";
-import { useGetAssetImages } from "../screen/api/useAssets";
+import useGetAsset from "../screen/api/useAssets";
 
 interface Props {
   landInfo: AssetDataType;
@@ -25,6 +25,8 @@ const LandTabScreen: React.FC<Props> = (props) => {
   const { landInfo } = props;
   const [landImages, setLandImages] = useState<string[]>([]);
   const processedImages = useRef(new Set<string>()); // Store the processed image URLs
+
+  const { useGetAssetImages } = useGetAsset()
 
   const imgIds = useMemo(
     () =>

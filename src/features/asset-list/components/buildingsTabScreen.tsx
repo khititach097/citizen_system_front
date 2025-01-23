@@ -14,11 +14,11 @@ import {
 import { Col, Image, Row, Typography } from "antd";
 import { Field } from "@/components/field";
 import Empty from "@/components/empty";
-import { useGetAssetImages } from "../screen/api/useAssets";
 import CardContainer from "@/components/container/CardContainer";
 import MapIcon from "@/components/icons/MapIcon";
 import PersonIcon from "@/components/icons/PersonIcon";
 import { isEmpty } from "lodash";
+import useGetAsset from "../screen/api/useAssets";
 
 interface Props {
   landInfo: AssetDataType;
@@ -30,6 +30,8 @@ const BuildingsTabScreen: React.FC<Props> = (props) => {
   const { landInfo } = props;
 
   const processedImages = useRef(new Set<string>()); // Store the processed image URLs
+
+  const { useGetAssetImages } = useGetAsset()
 
   const [building, setBuilding] = useState<BuildingType>();
   const [selectBuilding, setSelectBuilding] = useState<antOptionType>({

@@ -6,3 +6,4 @@ import { RootState } from ".";
 export const selectorLocal = (state: RootState) => state.local;
 
 //LOADING
+export const isLoadingSelector = createSelector([selectorLocal],(local) => local.loading.isLoading);

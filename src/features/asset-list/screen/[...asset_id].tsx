@@ -1,17 +1,18 @@
 import { useRouter } from 'next/router';
-import React, {  useState } from 'react';
-import { useGetAssetByAssetId } from './api/useAssets';
 import MainLandAssetScreen from '../components/mainLandAssetScreen';
 import MainCondoAssetScreen from '../components/mainCondoAssetScreen';
+import useGetAsset from './api/useAssets';
 
 
 const AssetDetailById = () => {
   const router = useRouter();
   const asset_id = router.query?.asset_id;
 
+  const { useGetAssetByAssetId } = useGetAsset()
+
   const {
     data: assetInfo,
-    isLoading,
+    isLoading: isLoadingAsset,
     error,
   } = useGetAssetByAssetId(typeof asset_id === 'string' ? asset_id : '');
 
