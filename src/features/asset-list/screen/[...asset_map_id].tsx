@@ -46,7 +46,7 @@ const AssetMapDetailById = () => {
 
   return (
     <div>
-      <Mapbox/>
+      <Mapbox mapData={mapData}/>
     </div>
   );
 };

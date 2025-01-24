@@ -8,6 +8,7 @@ import { logger } from "redux-logger";
 import userReducer from "./userReducer";
 import masterReducer from "./masterReducer";
 import loadingReducer from "./loadingSlice";
+import assetReducer from "../features/asset-list/utils/assetSlice";
 
 const persistConfigSession = {
   key: "sts-app-session-root",
@@ -18,9 +19,9 @@ const persistConfigLocal = {
   key: "sts-app-local-root",
   storage: storageLocal
 };
-// const rootReducer = combineReducers({
-  
-// });
+const rootReducer = combineReducers({
+  asset: assetReducer
+});
 
 const rootReducerLocal = combineReducers({
   user: userReducer,
@@ -29,11 +30,11 @@ const rootReducerLocal = combineReducers({
 });
 
 const persistedReducerLocal = persistReducer(persistConfigLocal, rootReducerLocal);
-// const persistedReducerSession = persistReducer(persistConfigSession, rootReducer);
+const persistedReducerSession = persistReducer(persistConfigSession, rootReducer);
 
 const allReducer = combineReducers({
   local: persistedReducerLocal,
-  // root: persistedReducerSession,
+  root: persistedReducerSession,
 });
 
 export const store = configureStore({
