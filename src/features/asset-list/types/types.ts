@@ -611,3 +611,10 @@ export interface AssetListCondoType {
   utm_scale: null | string;
   village: null | string;
 }
+
+
+export interface mapDataType {
+  geometry: string,
+  map_lat: number,
+  map_long: number,
+}
